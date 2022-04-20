@@ -60,7 +60,7 @@ List<String> _locations = ['A', 'B', 'C', 'D'];
       appBar: AppBar(
         title:Row(
           children: [
-            const Text('Products'),
+            const Text("list of products"),
             
              DropdownButton(
             hint: Text('Please choose a location'), // Not necessary for Option 1
