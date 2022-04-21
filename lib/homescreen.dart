@@ -11,9 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-List<String> _locations = ['A', 'B', 'C', 'D'];
-
- String? _selectedLocation; 
+ 
 
   List<ProductDetails> products = [
     ProductDetails(
@@ -57,26 +55,23 @@ List<String> _locations = ['A', 'B', 'C', 'D'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const Drawer(),
       appBar: AppBar(
         title:Row(
           children: [
             const Text("list of products"),
             
-             DropdownButton(
-            hint: Text('Please choose a location'), // Not necessary for Option 1
-            value: _selectedLocation,
-            onChanged: (newValue) {
-              setState(() {
-                _selectedLocation = newValue as String;
-              });
-            },
-            items: _locations.map((location) {
-              return DropdownMenuItem(
-                child: new Text(location),
-                value: location,
-              );
-            }).toList(),
-          ),
+            PopupMenuButton(
+              icon: Icon(Icons.arrow_drop_down),
+              
+              itemBuilder: (context){
+              
+              return [
+                PopupMenuItem(
+                  height: 30.0,
+                child: Text("categories"), ),
+              ];
+            }),
             
           ],
         ),
